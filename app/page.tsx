@@ -44,8 +44,8 @@ export default function HomePage() {
           {compressed && (
             <Link
               href={`/map/${compressed}`}
-              target="_blank"
               rel="noopener noreferrer"
+              target="_blank"
               style={{ textDecoration: "none" }}>
               <Notification title="Compressed URL" withCloseButton={false}>
                 {window.location.href + "map/" + compressed}

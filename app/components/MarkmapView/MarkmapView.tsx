@@ -15,8 +15,6 @@ export const MarkmapView = ({ markdown }: Props) => {
   useEffect(() => {
     if (refSvg.current) {
       const parsedFrontMatter = matter(markdown);
-      console.log(JSON.stringify(parsedFrontMatter.data));
-
       const markmap = Markmap.create(refSvg.current);
       const { root } = transformer.transform(markdown);
       markmap.setData(root, {
