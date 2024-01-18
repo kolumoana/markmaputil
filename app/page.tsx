@@ -1,6 +1,14 @@
 "use client";
 
-import { Container, Notification, Space, Textarea, Title } from "@mantine/core";
+import {
+  AppShell,
+  Container,
+  Notification,
+  ScrollArea,
+  Space,
+  Textarea,
+  Title,
+} from "@mantine/core";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { compressString } from "./compression/compression";
@@ -22,34 +30,44 @@ export default function HomePage() {
   }, [value]);
 
   return (
-    <Container ta="center">
-      <Space h={20} />
+    <AppShell header={{ height: 250 }} padding="md">
+      <AppShell.Header withBorder={false}>
+        <Container ta="center">
+          <Space h={20} />
 
-      <Title order={1} style={{ fontSize: "5rem", fontWeight: 700 }}>
-        mindmap util
-      </Title>
+          <Title order={1} style={{ fontSize: "5rem", fontWeight: 700 }}>
+            mindmap util
+          </Title>
 
-      <Space h={20} />
+          <Space h={20} />
 
-      {compressed && (
-        <Link href={`/map/${compressed}`} style={{ textDecoration: "none" }}>
-          <Notification title="Compressed URL">
-            {window.location.href + "map/" + compressed}
-          </Notification>
-        </Link>
-      )}
+          {compressed && (
+            <Link
+              href={`/map/${compressed}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}>
+              <Notification title="Compressed URL" withCloseButton={false}>
+                {window.location.href + "map/" + compressed}
+              </Notification>
+            </Link>
+          )}
+        </Container>
+      </AppShell.Header>
 
-      <Space h={20} />
-
-      <Textarea
-        value={value}
-        onChange={(event) => setValue(event.currentTarget.value)}
-        placeholder="Write your markdown here"
-        autosize
-        style={{ width: "100%" }}
-      />
-
-      <Space h={20} />
-    </Container>
+      <AppShell.Main>
+        <Container bg="var(--mantine-color-blue-light)" p="md">
+          <Textarea
+            value={value}
+            onChange={(event) => setValue(event.currentTarget.value)}
+            placeholder="Write your markdown here"
+            autosize
+            minRows={2}
+            maxRows={15}
+          />
+        </Container>
+        <Space h={20} />
+      </AppShell.Main>
+    </AppShell>
   );
 }
