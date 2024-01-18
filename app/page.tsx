@@ -16,8 +16,6 @@ export default function HomePage() {
     }
     const set = async () => {
       const compressed = await compressString(value);
-
-      console.log(compressed);
       setCompressed(compressed);
     };
     set();
