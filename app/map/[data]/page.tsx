@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { decompressString } from "../../compression/compression";
 
-import { MarkmapView } from "../../components/Markmap/Markmap";
+import { MarkmapView } from "../../components/MarkmapView/MarkmapView";
 
 interface Props {
   params: {

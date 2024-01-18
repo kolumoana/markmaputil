@@ -25,6 +25,8 @@ export default function HomePage() {
 
   return (
     <Container ta="center">
+      <Space h={20} />
+
       <Title order={1} style={{ fontSize: "5rem", fontWeight: 700 }}>
         mindmap util
       </Title>

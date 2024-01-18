@@ -20,7 +20,7 @@ export const MarkmapView = ({ markdown }: Props) => {
       const markmap = Markmap.create(refSvg.current);
       const { root } = transformer.transform(markdown);
       markmap.setData(root, {
-        initialExpandLevel: 1,
+        initialExpandLevel: 0,
         ...parsedFrontMatter.data,
       });
       markmap.fit();
