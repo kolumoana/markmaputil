@@ -26,7 +26,7 @@ export default function HomePage() {
   return (
     <Container ta="center">
       <Title order={1} style={{ fontSize: "5rem", fontWeight: 700 }}>
-        markmap util
+        mindmap util
       </Title>
 
       <Space h={20} />
@@ -46,7 +46,10 @@ export default function HomePage() {
         onChange={(event) => setValue(event.currentTarget.value)}
         placeholder="Write your markdown here"
         autosize
-        style={{ width: "100%" }}></Textarea>
+        style={{ width: "100%" }}
+      />
+
+      <Space h={20} />
     </Container>
   );
 }

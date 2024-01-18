@@ -4,8 +4,8 @@ import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import { theme } from "../theme";
 
 export const metadata = {
-  title: "Markmaputil",
-  description: "A utility for compressing and decompressing markmap URLs",
+  title: "mindmap util",
+  description: "A utility for Markdown to Mindmap",
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: any }) {
     <html lang="en">
       <head>
         <ColorSchemeScript />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.png" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
