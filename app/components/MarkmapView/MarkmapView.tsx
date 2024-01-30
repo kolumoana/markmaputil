@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { Transformer } from "markmap-lib";
 import { Markmap } from "markmap-view";
 import matter from "gray-matter";
+import { IMarkmapOptions, INode } from "markmap-common";
 
 const transformer = new Transformer();
 
@@ -17,10 +18,13 @@ export const MarkmapView = ({ markdown }: Props) => {
       const parsedFrontMatter = matter(markdown);
       const markmap = Markmap.create(refSvg.current);
       const { root } = transformer.transform(markdown);
-      markmap.setData(root, {
+
+      const options = {
         initialExpandLevel: 0,
-        ...parsedFrontMatter.data,
-      });
+        ...parsedFrontMatter.data.markmap,
+      };
+
+      markmap.setData(root, options);
       markmap.fit();
 
       return () => {
