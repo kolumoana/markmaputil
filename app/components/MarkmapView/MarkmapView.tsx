@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from "react";
 import { Transformer } from "markmap-lib";
 import { Markmap } from "markmap-view";
 import matter from "gray-matter";
-import { Button } from "@mantine/core";
+import { Box, Button } from "@mantine/core";
 import Link from "next/link";
 
 const transformer = new Transformer();
@@ -46,15 +46,16 @@ export const MarkmapView = ({ markdown, compressed }: Props) => {
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
       <Link href={homeButtonHref}>
-        <Button
+        <Box
           style={{
             position: "absolute",
             top: 20,
             right: 20,
             zIndex: 100,
+            fontSize: "2rem",
           }}>
-          Home
-        </Button>
+          🏠
+        </Box>
       </Link>
       <svg
         ref={refSvg}

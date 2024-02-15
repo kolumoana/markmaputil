@@ -7,7 +7,11 @@ import {
   Space,
   Textarea,
   Title,
+  em,
+  Box,
+  Center,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { compressString, decompressString } from "./compression/compression";
@@ -16,6 +20,8 @@ import { useSearchParams } from "next/navigation";
 export default function HomePage() {
   const [value, setValue] = useState("");
   const [compressed, setCompressed] = useState("");
+
+  const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
 
   const searchParams = useSearchParams();
 
@@ -50,10 +56,19 @@ export default function HomePage() {
         <Container ta="center">
           <Space h={20} />
 
-          <Title order={1} style={{ fontSize: "5rem", fontWeight: 700 }}>
-            mindmap util
-          </Title>
-
+          <Box
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100px", // Boxの高さを100pxに設定
+            }}>
+            <Title
+              order={1}
+              style={{ fontSize: isMobile ? "2rem" : "5rem", fontWeight: 700 }}>
+              mindmap util
+            </Title>
+          </Box>
           <Space h={20} />
 
           {compressed && (
@@ -80,6 +95,29 @@ export default function HomePage() {
           />
         </Container>
         <Space h={20} />
+        <Center>
+          <a
+            href="https://github.com/kolumoana/mindmaputil"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              textDecoration: "none",
+              fontSize: "2rem",
+            }}>
+            😺
+          </a>
+          <Space w={20} />
+          <a
+            href="https://www.kolumoana.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              textDecoration: "none",
+              fontSize: "2rem",
+            }}>
+            🌐
+          </a>
+        </Center>
       </AppShell.Main>
     </AppShell>
   );
