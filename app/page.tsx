@@ -61,7 +61,7 @@ export default function HomePage() {
               href={`/map/${compressed}`}
               style={{ textDecoration: "none" }}>
               <Notification title="Compressed URL" withCloseButton={false}>
-                {window.location.href + "map/" + compressed}
+                {window.location.origin + "/map/" + compressed}
               </Notification>
             </Link>
           )}

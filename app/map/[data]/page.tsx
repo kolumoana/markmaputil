@@ -3,7 +3,7 @@ import { decompressString } from "../../compression/compression";
 import { MarkmapView } from "../../components/MarkmapView/MarkmapView";
 
 import { convertToTitle, convertToDescription } from "./description";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 interface Props {
   params: {
@@ -11,10 +11,9 @@ interface Props {
   };
 }
 
-export const generateMetadata = async (
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
   const markdown = await decompressString(params.data);
 
   return {
