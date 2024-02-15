@@ -1,8 +1,9 @@
+"use client";
+
 import React, { useRef, useEffect } from "react";
 import { Transformer } from "markmap-lib";
 import { Markmap } from "markmap-view";
 import matter from "gray-matter";
-import { IMarkmapOptions, INode } from "markmap-common";
 
 const transformer = new Transformer();
 

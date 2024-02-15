@@ -1,9 +1,9 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { decompressString } from "../../compression/compression";
 
 import { MarkmapView } from "../../components/MarkmapView/MarkmapView";
+
+import { convertToTitle, convertToDescription } from "./description";
+import type { Metadata, ResolvingMetadata } from "next";
 
 interface Props {
   params: {
@@ -11,16 +11,20 @@ interface Props {
   };
 }
 
-export default function Page({ params }: Props) {
-  const [value, setValue] = useState("");
+export const generateMetadata = async (
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> => {
+  const markdown = await decompressString(params.data);
 
-  useEffect(() => {
-    const set = async () => {
-      const decompressed = await decompressString(params.data);
-      setValue(decompressed);
-    };
-    set();
-  }, []);
+  return {
+    title: `${convertToTitle(markdown)} | mindmap util`,
+    description: convertToDescription(markdown),
+  };
+};
 
-  return <>{value && <MarkmapView markdown={value} />}</>;
+export default async function Page({ params }: Props) {
+  const markdown = await decompressString(params.data);
+
+  return <MarkmapView markdown={markdown} />;
 }

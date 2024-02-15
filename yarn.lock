@@ -3128,31 +3128,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mantine-minimal-next-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "mantine-minimal-next-template@workspace:."
-  dependencies:
-    "@mantine/core": "npm:7.4.2"
-    "@mantine/hooks": "npm:7.4.2"
-    "@types/node": "npm:20.8.10"
-    "@types/react": "npm:18.2.36"
-    "@types/react-dom": "npm:18.2.14"
-    eslint: "npm:8.53.0"
-    eslint-config-next: "npm:14.0.1"
-    gray-matter: "npm:^4.0.3"
-    markmap-common: "npm:^0.15.6"
-    markmap-lib: "npm:^0.15.8"
-    markmap-view: "npm:^0.15.8"
-    next: "npm:14.0.1"
-    postcss: "npm:^8.4.31"
-    postcss-preset-mantine: "npm:1.12.3"
-    postcss-simple-vars: "npm:^7.0.1"
-    react: "npm:18.2.0"
-    react-dom: "npm:18.2.0"
-    typescript: "npm:5.2.2"
-  languageName: unknown
-  linkType: soft
-
 "markmap-common@npm:^0.15.6":
   version: 0.15.6
   resolution: "markmap-common@npm:0.15.6"
@@ -3212,6 +3187,31 @@ __metadata:
   checksum: 3d6505b20f9fa804af5d8c596cb1c5e475b9b0cd05f652c5b56141cf941bd72adaeb7a436fda344235cef93a7f29b7472efc779fcdb83b478eab0867b95cdeff
   languageName: node
   linkType: hard
+
+"mindmaputil@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "mindmaputil@workspace:."
+  dependencies:
+    "@mantine/core": "npm:7.4.2"
+    "@mantine/hooks": "npm:7.4.2"
+    "@types/node": "npm:20.8.10"
+    "@types/react": "npm:18.2.36"
+    "@types/react-dom": "npm:18.2.14"
+    eslint: "npm:8.53.0"
+    eslint-config-next: "npm:14.0.1"
+    gray-matter: "npm:^4.0.3"
+    markmap-common: "npm:^0.15.6"
+    markmap-lib: "npm:^0.15.8"
+    markmap-view: "npm:^0.15.8"
+    next: "npm:14.0.1"
+    postcss: "npm:^8.4.31"
+    postcss-preset-mantine: "npm:1.12.3"
+    postcss-simple-vars: "npm:^7.0.1"
+    react: "npm:18.2.0"
+    react-dom: "npm:18.2.0"
+    typescript: "npm:5.2.2"
+  languageName: unknown
+  linkType: soft
 
 "minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2

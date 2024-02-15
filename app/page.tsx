@@ -4,7 +4,6 @@ import {
   AppShell,
   Container,
   Notification,
-  ScrollArea,
   Space,
   Textarea,
   Title,

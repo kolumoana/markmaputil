@@ -4,13 +4,13 @@ import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import { theme } from "../theme";
 
 export const metadata = {
-  title: "mindmap util",
-  description: "A utility for Markdown to Mindmap",
+  title: "mindmap util - Markdown to Mindmap",
+  description: "Convert your markdown to a mindmap",
 };
 
 export default function RootLayout({ children }: { children: any }) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
         <ColorSchemeScript />
         <link rel="shortcut icon" href="/favicon.png" />
