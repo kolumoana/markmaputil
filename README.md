@@ -1,4 +1,4 @@
-# mindmap util - Markdown を Mindmap に変換
+# mindmap util
 
 mindmap util は Markdown を Mindmap に変換するための Web サービスです。  
 サーバーを持たずにマインドマップを共有できるため、無料で利用できます。  
