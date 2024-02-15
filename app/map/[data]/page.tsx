@@ -26,5 +26,5 @@ export const generateMetadata = async (
 export default async function Page({ params }: Props) {
   const markdown = await decompressString(params.data);
 
-  return <MarkmapView markdown={markdown} />;
+  return <MarkmapView markdown={markdown} compressed={params.data} />;
 }

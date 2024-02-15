@@ -4,19 +4,27 @@ import React, { useRef, useEffect } from "react";
 import { Transformer } from "markmap-lib";
 import { Markmap } from "markmap-view";
 import matter from "gray-matter";
+import { Button } from "@mantine/core";
+import Link from "next/link";
 
 const transformer = new Transformer();
 
 interface Props {
   markdown: string;
+  compressed: string;
 }
 
-export const MarkmapView = ({ markdown }: Props) => {
+export const MarkmapView = ({ markdown, compressed }: Props) => {
   const refSvg = useRef<SVGSVGElement>(null);
+
+  const parsedFrontMatter = matter(markdown);
+
+  const homeButtonHref = parsedFrontMatter.data.default
+    ? `/?default=${compressed}`
+    : "/";
 
   useEffect(() => {
     if (refSvg.current) {
-      const parsedFrontMatter = matter(markdown);
       const markmap = Markmap.create(refSvg.current);
       const { root } = transformer.transform(markdown);
 
@@ -32,16 +40,29 @@ export const MarkmapView = ({ markdown }: Props) => {
         markmap.destroy();
       };
     }
-  }, [markdown]);
+  }, [markdown, parsedFrontMatter]);
 
   return (
-    <svg
-      ref={refSvg}
-      style={{
-        height: "100vh",
-        width: "100vw",
-        overflow: "hidden",
-      }}
-    />
+    <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
+      <Link href={homeButtonHref}>
+        <Button
+          style={{
+            position: "absolute",
+            top: 20,
+            right: 20,
+            zIndex: 100,
+          }}>
+          Home
+        </Button>
+      </Link>
+      <svg
+        ref={refSvg}
+        style={{
+          height: "100vh",
+          width: "100vw",
+          overflow: "hidden",
+        }}
+      />
+    </div>
   );
 };

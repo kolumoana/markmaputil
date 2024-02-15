@@ -10,11 +10,27 @@ import {
 } from "@mantine/core";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { compressString } from "./compression/compression";
+import { compressString, decompressString } from "./compression/compression";
+import { useSearchParams } from "next/navigation";
 
 export default function HomePage() {
   const [value, setValue] = useState("");
   const [compressed, setCompressed] = useState("");
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const defaultValue = searchParams.get("default") || "";
+    if (defaultValue === "") {
+      return;
+    }
+
+    const set = async () => {
+      const raw = await decompressString(defaultValue);
+      setValue(raw);
+    };
+    set();
+  }, [searchParams]);
 
   useEffect(() => {
     if (value === "") {
@@ -43,8 +59,6 @@ export default function HomePage() {
           {compressed && (
             <Link
               href={`/map/${compressed}`}
-              rel="noopener noreferrer"
-              target="_blank"
               style={{ textDecoration: "none" }}>
               <Notification title="Compressed URL" withCloseButton={false}>
                 {window.location.href + "map/" + compressed}
