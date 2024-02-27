@@ -5,8 +5,6 @@ import { MarkmapView } from "../../components/MarkmapView/MarkmapView";
 import { convertToTitle, convertToDescription } from "./description";
 import type { Metadata } from "next";
 
-export const runtime = "edge";
-
 interface Props {
   params: {
     data: string;
