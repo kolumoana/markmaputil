@@ -19,8 +19,6 @@ export const MarkmapView = ({ markdown, compressed }: Props) => {
 
   const parsedFrontMatter = matter(markdown);
 
-  console.log("parsedFrontMatter.data.default", parsedFrontMatter.data.default);
-
   const homeButtonHref =
     parsedFrontMatter.data.default == true ? `/?default=${compressed}` : "/";
 

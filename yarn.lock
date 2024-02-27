@@ -625,6 +625,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/pako@npm:^2":
+  version: 2.0.3
+  resolution: "@types/pako@npm:2.0.3"
+  checksum: 45119ac3c4e8a77317c35493327039b74e333562f06ce038048228918d8ddfaa7958125aab960d1565b3861046022754c414dba1eecb210c44a32c415956bee2
+  languageName: node
+  linkType: hard
+
 "@types/prop-types@npm:*":
   version: 15.7.5
   resolution: "@types/prop-types@npm:15.7.5"
@@ -3195,6 +3202,7 @@ __metadata:
     "@mantine/core": "npm:7.4.2"
     "@mantine/hooks": "npm:7.4.2"
     "@types/node": "npm:20.8.10"
+    "@types/pako": "npm:^2"
     "@types/react": "npm:18.2.36"
     "@types/react-dom": "npm:18.2.14"
     eslint: "npm:8.53.0"
@@ -3204,6 +3212,7 @@ __metadata:
     markmap-lib: "npm:^0.15.8"
     markmap-view: "npm:^0.15.8"
     next: "npm:14.0.1"
+    pako: "npm:^2.1.0"
     postcss: "npm:^8.4.31"
     postcss-preset-mantine: "npm:1.12.3"
     postcss-simple-vars: "npm:^7.0.1"
@@ -3517,6 +3526,13 @@ __metadata:
   dependencies:
     p-limit: "npm:^3.0.2"
   checksum: 2290d627ab7903b8b70d11d384fee714b797f6040d9278932754a6860845c4d3190603a0772a663c8cb5a7b21d1b16acb3a6487ebcafa9773094edc3dfe6009a
+  languageName: node
+  linkType: hard
+
+"pako@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "pako@npm:2.1.0"
+  checksum: 8e8646581410654b50eb22a5dfd71159cae98145bd5086c9a7a816ec0370b5f72b4648d08674624b3870a521e6a3daffd6c2f7bc00fdefc7063c9d8232ff5116
   languageName: node
   linkType: hard
 

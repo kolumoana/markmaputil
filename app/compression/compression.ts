@@ -1,19 +1,19 @@
-import { promisify } from "util";
-import { gzip, gunzip } from "zlib";
-
-const gzipPromise = promisify(gzip);
-const gunzipPromise = promisify(gunzip);
+import pako from "pako";
 
 export const compressString = async (raw: string): Promise<string> => {
   const buffer = Buffer.from(raw, "utf-8");
-  const compressed = await gzipPromise(buffer);
-  const compressedBase64 = compressed.toString("base64");
+  const uint8Array = new Uint8Array(buffer);
+  const compressed = pako.gzip(uint8Array);
+  const compressedBase64 = Buffer.from(compressed).toString("base64");
+
   return encodeURIComponent(compressedBase64);
 };
 
 export const decompressString = async (uriEncoded: string): Promise<string> => {
   const compressedBase64 = decodeURIComponent(uriEncoded);
   const compressed = Buffer.from(compressedBase64, "base64");
-  const buffer = await gunzipPromise(compressed);
-  return buffer.toString("utf-8");
+  const uint8Array = new Uint8Array(compressed);
+  const decompressed = pako.ungzip(uint8Array, { to: "string" });
+
+  return decompressed;
 };
